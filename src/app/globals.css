@@ -40,3 +40,39 @@ a {
     color-scheme: dark;
   }
 }
+
+
+@font-face {
+  font-family: 'Doto';
+  src: url('./fonts/static/Doto-Regular.ttf') format('truetype'),
+       url('./fonts/static/Doto-Bold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'DotoBold';
+  src: url('./fonts/static/Doto-ExtraBold.ttf') format('truetype'),
+       url('./fonts/static/Doto-Bold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.customGradient{
+  background: rgb(215,185,44);
+  background: linear-gradient(90deg, rgba(215,185,44,1) 0%, rgba(230,201,10,1) 43%, rgba(242,242,117,0.9921218487394958) 100%);
+  font-weight: bold;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+.customText{
+  background: rgb(215,185,44);
+  background: linear-gradient(90deg, rgba(215,185,44,1) 0%, rgba(230,201,10,1) 43%, rgba(242,242,117,0.9921218487394958) 100%);
+  font-weight: bold;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: "yellow";
+  text-shadow: "0 0 10px rgb(89,238,96)";
+}
