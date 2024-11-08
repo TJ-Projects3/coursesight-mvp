@@ -4,7 +4,7 @@ export default function Navbar() {
     return (
         <AppBar className="nav-bar" position="fixed">
             <Toolbar className="tool-bar">
-                <div style={{ display: 'flex', alignItems: 'center' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                     <img src="\tu-tiger.webp" width="50px"></img>
                     <Typography className="logo-title" component="a" href="/" variant="h6" sx={{  textDecoration: 'none', color: 'black', paddingLeft: '10px'}}>
                         Coursesight
