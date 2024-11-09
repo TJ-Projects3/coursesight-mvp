@@ -29,7 +29,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-background to-secondary/20">
       <Navbar></Navbar>
-      <header className="relative h-screen flex flex-col items-center justify-center text-center px-4">
+      <header className="relative h-screen flex flex-col items-center justify-center text-center px-4 gutterBottom">
         <motion.div
           className="absolute inset-0 -z-10 opacity-30"
           initial={{ opacity: 0 }}
@@ -41,7 +41,7 @@ export default function Home() {
           <div className="absolute bottom-20 left-1/3 w-80 h-80 bg-pink-300 rounded-full mix-blend-multiply filter blur-xl"></div>
         </motion.div>
         <motion.h1 
-          className="text-6xl font-bold mb-4 bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 text-transparent bg-clip-text"
+          className="text-6xl font-bold mb-8 bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 text-transparent bg-clip-text"
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -118,7 +118,7 @@ export default function Home() {
           </motion.div>
         </section>
 
-        <section className="py-20 px-4 bg-gradient-to-r from-purple-100 to-pink-100">
+        <section id="about" className="py-20 px-4 bg-gradient-to-r from-purple-100 to-pink-100">
           <motion.div 
             className="max-w-4xl mx-auto"
             initial={{ opacity: 0, y: 50 }}
@@ -183,7 +183,7 @@ export default function Home() {
           </motion.div>
         </section>
 
-        <section className="py-20 px-4 bg-gradient-to-r from-blue-100 to-green-100">
+        <section id="contact" className="py-20 px-4 bg-gradient-to-r from-blue-100 to-green-100">
           <motion.div 
             className="max-w-4xl mx-auto"
             initial={{ opacity: 0, y: 50 }}
@@ -203,7 +203,7 @@ export default function Home() {
           </motion.div>
         </section>
 
-        <section className="py-20 px-4 bg-white">
+        <section id='resources' className="py-20 px-4 bg-white">
           <motion.div 
             className="max-w-6xl mx-auto"
             initial={{ opacity: 0, y: 50 }}
@@ -267,9 +267,9 @@ export default function Home() {
             <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2">
               <li><a href="#" className="hover:underline">Home</a></li>
-              <li><a href="#" className="hover:underline">About Us</a></li>
-              <li><a href="#" className="hover:underline">Services</a></li>
-              <li><a href="#" className="hover:underline">Contact</a></li>
+              <li><a href="#about" className="hover:underline">About Us</a></li>
+              <li><a href="#resources" className="hover:underline">Resources</a></li>
+              <li><a href="#contact" className="hover:underline">Contact</a></li>
             </ul>
           </div>
           <div>
