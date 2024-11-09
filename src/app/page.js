@@ -1,7 +1,6 @@
 
 'use client'
 
-
 import Image from "next/image";
 import { Typography, Button, Container, Box } from "@mui/material";
 import shadows from "@mui/material/styles/shadows";
