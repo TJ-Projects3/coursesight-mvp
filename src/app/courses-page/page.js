@@ -1,9 +1,9 @@
 // src/app/courses.js
 'use client';
-import React from 'react';
+import React, { useState } from 'react';
 import CourseCard from './components/CourseCard';
-import { Container } from '@mui/material';
-import { experimentalStyled as styled } from '@mui/material/styles';
+import { Container, TextField } from '@mui/material';
+import { experimentalStyled as styled, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
@@ -28,13 +28,49 @@ const courses = [
 ];
 
 export default function Courses() {
+    const [searchQuery, setSearchQuery] = useState('');
+    const theme = useTheme();
+
+  const handleSearchChange = (event) => {
+    setSearchQuery(event.target.value);
+  };
+
+  const filteredCourses = courses.filter((course) =>
+    course.title.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   return (
     <>
       <Navbar />
       <Container sx={{ mt: 28 }}>
+        <TextField
+          label="Search Courses"
+          variant="outlined"
+          fullWidth
+          margin="normal"
+          value={searchQuery}
+          onChange={handleSearchChange}
+          sx={{
+            backgroundColor: theme.palette.mode === 'dark' ? '#424242' : '#fff',
+            input: {
+              color: theme.palette.mode === 'dark' ? '#fff' : '#000',
+            },
+            '& .MuiOutlinedInput-root': {
+              '& fieldset': {
+                borderColor: theme.palette.mode === 'dark' ? '#fff' : '#000',
+              },
+              '&:hover fieldset': {
+                borderColor: theme.palette.mode === 'dark' ? '#fff' : '#000',
+              },
+              '&.Mui-focused fieldset': {
+                borderColor: theme.palette.mode === 'dark' ? '#fff' : '#000',
+              },
+            },
+          }}
+        />
         <Box sx={{ flexGrow: 1 }}>
           <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
-            {courses.map((course) => (
+            {filteredCourses.map((course) => (
               <Grid item key={course.id} xs={2} sm={4} md={4}>
                 <Item>
                   <CourseCard course={course} />
