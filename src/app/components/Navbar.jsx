@@ -13,9 +13,9 @@ export default function Navbar() {
                 </div>
                 <div>
                     <Button color="black" href="/" className="nav-item">Home</Button>
-                    <Button color="black" href="/about" className="nav-item">About</Button>
-                    <Button color="black" href="/resources" className="nav-item">Resource</Button>
-                    <Button color="black" href="/contact" className="nav-item">Contact</Button>    
+                    <Button color="black" href="#about" className="nav-item">About</Button>
+                    <Button color="black" href="#resources" className="nav-item">Resource</Button>
+                    <Button color="black" href="#contact" className="nav-item">Contact</Button>    
                 </div>
                 <div>
                     <SignedOut>
