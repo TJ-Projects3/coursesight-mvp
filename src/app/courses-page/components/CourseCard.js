@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { Card, CardContent, Typography, CardActionArea, Box, CardMedia, Dialog, DialogTitle, DialogContent, DialogActions, Button, Grid, List, ListItem, ListItemText, TextField, Rating } from '@mui/material';
 import { SignedIn, SignedOut, useUser } from '@clerk/clerk-react';
+import Link from 'next/link';
 
 export default function CourseCard({ course, videoUrl, testimonials, professors }) {
   const [open, setOpen] = useState(false);
@@ -94,9 +95,11 @@ export default function CourseCard({ course, videoUrl, testimonials, professors 
                   </Box>
                 </SignedIn>
                 <SignedOut>
-                  <Typography variant="body2" color="text.secondary">
+                <Link href="/sign-in" passHref>
+                  <Typography variant="body2" color="primary" sx={{ cursor: 'pointer', textDecoration: 'underline' }}>
                     Please sign in to add a comment.
                   </Typography>
+                  </Link>
                 </SignedOut>
               </Box>
             </Grid>
