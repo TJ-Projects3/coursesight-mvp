@@ -125,7 +125,7 @@ const courses = [
     title: 'Econ 202',
     description: 'MACROECONOMIC PRINCIPLES',
     image: 'https://media.istockphoto.com/id/1460500012/photo/benjamin-franklin-face-on-usd-dollar-banknote-with-red-decreasing-stock-market-graph-chart.jpg?s=1024x1024&w=is&k=20&c=4QbddbbhlO-vKUBq7fd5ozi1j0qmVHY_edUXjVsl6ic=',
-    videoUrl: 'https://www.youtube.com/embed/example2',
+    videoUrl: 'https://www.youtube.com/embed/q98Z60-NAe0',
     testimonials: [
       { student: 'January 2024', testimonial: "Good teachers but super lecture-heavy and will need to take good notes. Only focus on her lecture she doesn't test you on the textbook. She has pop quizzes but are open-note. When studying for her exams what helped me was to study previous questions on the practice test and quizzes. Also allows cheat sheets." },
       { student: 'March 2024', testimonial: 'Had Professor Hazra for both micro and macro. Once you have her you know her style, however she can be very unhelpful when people try to clarify things. Tests and quizzes allow notes, always get 1 point out of 2 for trying the questions in class, overall not hard pass' },
