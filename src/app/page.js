@@ -8,7 +8,7 @@ import Navbar from "./components/Navbar";
 export default function Home() {
   return (
 
-    <Box sx={{background:'radial-gradient(rgb(48, 46, 46),rgb(36, 36, 36) 35%)', width:'100vw', height:'100vh'}}>
+    <Box sx={{background:'radial-gradient(rgb(48, 46, 46),rgb(36, 36, 36) 35%)', width:'100vw', height:'100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
     <div
       style={{ // Daniels Div 
         background:"radial-gradient(rgb(48, 46, 46),rgb(36, 36, 36) 35%)",
@@ -22,7 +22,6 @@ export default function Home() {
         flexDirection: "column",  // Stack typography items vertically
         top: "100px",
         position: "absolute",
-        left:"325px",
         padding: "20px",  // Add padding for some space inside the container
         textAlign: "center"  // Align text horizontally in the center
       }}
