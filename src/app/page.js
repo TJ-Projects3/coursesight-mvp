@@ -1,9 +1,19 @@
+"use client";
 import Image from "next/image";
 import styles from "./page.module.css";
 import { Typography, Button, Container } from "@mui/material";
 import shadows from "@mui/material/styles/shadows";
+import Link from "next/link";
+import { useRouter } from 'next/navigation';
 
 export default function Home() {
+
+  const router = useRouter();
+
+  const handleRedirect = () => {
+    router.push('/courses-page');
+  };
+
   return (
     <div
       style={{
@@ -45,15 +55,20 @@ export default function Home() {
           gap:"120px"
       }}
       >
-          <Button className="customText" style={{
-             fontFamily: "DotoBold, sans-serif", // Make sure "Doto" matches your CSS font name
-             fontSize: "35px",
-             boxShadow: "0 0 10px rgb(241,235,156)",
-             height:"50px",
-             textAlign:"center",
-          }}>
-            ss 
-          </Button>
+
+        {/* <Link href="/CoursesPage" passHref> */}
+          
+            <Button onClick={handleRedirect} className="customText" style={{
+               fontFamily: "DotoBold, sans-serif", // Make sure "Doto" matches your CSS font name
+               fontSize: "35px",
+               boxShadow: "0 0 10px rgb(241,235,156)",
+               height:"50px",
+               textAlign:"center",
+            }}>
+              Courses 
+            </Button>
+          
+        {/* </Link> */}
 
           <Button className="customText" style={{
              fontFamily: "DotoBold, sans-serif", // Make sure "Doto" matches your CSS font name
