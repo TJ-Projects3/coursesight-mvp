@@ -1,10 +1,18 @@
+<<<<<<< HEAD
 "use client";
+=======
+'use client'
+
+>>>>>>> 411f339df85c3acfa6d35e6e0d7fdc01d48700fe
 import Image from "next/image";
-import styles from "./page.module.css";
-import { Typography, Button, Container } from "@mui/material";
+import { Typography, Button, Container, Box } from "@mui/material";
 import shadows from "@mui/material/styles/shadows";
+<<<<<<< HEAD
 import Link from "next/link";
 import { useRouter } from 'next/navigation';
+=======
+import Navbar from "./components/Navbar";
+>>>>>>> 411f339df85c3acfa6d35e6e0d7fdc01d48700fe
 
 export default function Home() {
 
@@ -15,9 +23,11 @@ export default function Home() {
   };
 
   return (
+
+    <Box sx={{background:'radial-gradient(rgb(48, 46, 46),rgb(36, 36, 36) 35%)', width:'100vw', height:'100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
     <div
-      style={{
-        background:"",
+      style={{ // Daniels Div 
+        background:"radial-gradient(rgb(48, 46, 46),rgb(36, 36, 36) 35%)",
         boxShadow: "0 0 40px rgb(241,235,156)",
         width: "850px",
         height: "200px",
@@ -28,11 +38,11 @@ export default function Home() {
         flexDirection: "column",  // Stack typography items vertically
         top: "100px",
         position: "absolute",
-        left:"325px",
         padding: "20px",  // Add padding for some space inside the container
         textAlign: "center"  // Align text horizontally in the center
       }}
     >
+      <Navbar></Navbar>
       <Typography
         className="customGradient"
         style={{
@@ -73,15 +83,17 @@ export default function Home() {
           <Button className="customText" style={{
              fontFamily: "DotoBold, sans-serif", // Make sure "Doto" matches your CSS font name
              fontSize: "35px",
+             boxShadow: "0 0 10px rgb(241,235,156)",
+             height:"50px",
+             textAlign:"center",
              
           }}>
             ss 
           </Button>
-      </Container>
-      
-
-    
+      </Container>       
     </div>
+         
+    </Box>
   );
 }
 2
