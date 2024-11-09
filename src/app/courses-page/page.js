@@ -8,6 +8,7 @@ import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import Navbar from "../components/Navbar";
+import Footer from '../components/Footer';
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: '#fff',
@@ -266,6 +267,7 @@ export default function Courses() {
           </Grid>
         </Box>
       </Container>
+      <Footer />
     </>
   );
 }
