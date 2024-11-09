@@ -13,7 +13,8 @@
   }
   
 .nav-bar {
-  background-color: goldenrod
+  background-color: inherit
+
 }
 
 @media (prefers-color-scheme: dark) {
