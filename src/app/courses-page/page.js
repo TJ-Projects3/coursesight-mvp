@@ -73,7 +73,7 @@ const courses = [
     title: 'Cosc 236',
     description: 'INTRO TO COMPUTER SCIENCE 1',
     image: 'https://media.istockphoto.com/id/1461146736/photo/close-up-of-laptop-computer-on-desk-with-glowing-globe-hologram-on-blurry-background-internet.jpg?s=2048x2048&w=is&k=20&c=Pbq3Q_mkZentJy4M1kzdhBONste4CfSXcqI-mqIhw5g=',
-    videoUrl: 'https://www.youtube.com/embed/example4',
+    videoUrl: 'https://www.youtube.com/embed/17NZXqebF_Q',
     testimonials: [
       { student: 'October 2024', testimonial: "You have to pay attention or you will fall behind in class, unless you've mastered data structures and algorithms you will suffer. Other than that he allows you to use ANYTHING for exams/quizes as long as you site your sources if its something off of the internet." },
       { student: 'May 2024', testimonial: 'Loved the hands-on projects.' },
@@ -143,7 +143,7 @@ const courses = [
     title: 'TSEM 102',
     description: 'TOWSON SEMINAR',
     image: 'https://media.istockphoto.com/id/499517325/photo/a-man-speaking-at-a-business-conference.jpg?s=1024x1024&w=is&k=20&c=iCUzJvudLPi2HnpAAzIVVqgQVAlnI9TigkEcXcH2NY4=',
-    videoUrl: 'https://www.youtube.com/embed/example3',
+    videoUrl: 'https://www.youtube.com/embed/gfUu4C6sSxY',
     testimonials: [
       { student: 'January 2024', testimonial: "Good teachers but super lecture-heavy and will need to take good notes. Only focus on her lecture she doesn't test you on the textbook. She has pop quizzes but are open-note. When studying for her exams what helped me was to study previous questions on the practice test and quizzes. Also allows cheat sheets." },
       { student: 'March 2024', testimonial: "I don't know what the other reviews are talking about, Korzi is a great guy. Extremely understanding, really wants you to pass his class, and is very clear on what you should be taking notes on (you need to take lot of notes for this class). He goes over the material that will be on his exams & the exams themselves are doable as long as you study." },
@@ -184,10 +184,10 @@ const courses = [
   },
   {
     id: 10,
-    title: 'CIS 458',
+    title: 'CIS 328',
     description: 'ORGANIZATIONAL DATABASE MNGT',
     image: 'https://media.istockphoto.com/id/1386672473/photo/businessman-using-a-computer-to-document-management-concept-online-documentation-database-and.jpg?s=1024x1024&w=is&k=20&c=2Qpyt5kMPQ_rlijuNVYUJIudj1U-tclvsDOh-4wrv0I=',
-    videoUrl: 'https://www.youtube.com/embed/example5',
+    videoUrl: 'https://www.youtube.com/embed/ltewoY3CcXo',
     testimonials: [
       { student: 'August 2024', testimonial: 'Fascinating insights into physics.' },
       { student: 'June 2024', testimonial: 'Highly recommend for physics enthusiasts.' },
