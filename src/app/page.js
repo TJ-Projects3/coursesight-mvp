@@ -8,8 +8,15 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { ChevronDown, Star, Book, Users, Trophy } from 'lucide-react'
 import Navbar from './components/Navbar'
+import { useRouter } from 'next/navigation';
 
 export default function Home() {
+  const router = useRouter();
+
+  const handleRedirect = () => {
+    router.push('/courses-page');
+  };
+
   const [scrollY, setScrollY] = useState(0)
 
   useEffect(() => {
@@ -17,6 +24,7 @@ export default function Home() {
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-background to-secondary/20">
@@ -54,7 +62,7 @@ export default function Home() {
           Your one-stop platform for course reviews, study resources, and campus life insights.
         </motion.p>
         <div className="flex space-x-4">
-          <Button size="lg" className="bg-primary hover:bg-primary/90">Get Started</Button>
+          <Button size="lg" className="bg-primary hover:bg-primary/90" onClick={handleRedirect}>Get Started</Button>
           <Button size="lg" variant="outline">Learn More</Button>
         </div>
         <motion.div 
