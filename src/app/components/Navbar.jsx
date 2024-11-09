@@ -3,7 +3,7 @@ import { AppBar, Toolbar, Button, Typography, Image } from "@mui/material";
 
 export default function Navbar() {
     return (
-        <AppBar className="nav-bar" position="fixed">
+        <AppBar className="nav-bar bg-gradient-to-r from-purple-400 via-pink-500 to-red-500" position="fixed">
             <Toolbar className="tool-bar">
                 <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                     <img src="\tu-tiger.webp" width="50px"></img>
