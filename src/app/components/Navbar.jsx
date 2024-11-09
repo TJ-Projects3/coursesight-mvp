@@ -1,3 +1,4 @@
+import { SignedIn, SignedOut, UserButton} from "@clerk/nextjs";
 import { AppBar, Toolbar, Button, Typography, Image } from "@mui/material";
 
 export default function Navbar() {
@@ -15,6 +16,15 @@ export default function Navbar() {
                     <Button color="inherit" href="/about" className="nav-item">About</Button>
                     <Button color="inherit" href="/resources" className="nav-item">Resource</Button>
                     <Button color="inherit" href="/contact" className="nav-item">Contact</Button>    
+                </div>
+                <div>
+                    <SignedOut>
+                        <Button color="inherit" href="/sign-up" className="button-white" sx={{ mr: 2, backgroundColor: 'white', color: 'black', fontWeight: 600, borderRadius: '10px', padding: '5px 15px 5px 15px', marginLeft: '10px','&:hover': {backgroundColor: '#e2e2e2',}, }}>Sign Up</Button>
+                        <Button color="inherit" href="/sign-in" className="button-blue" sx={{ mr: 2, backgroundColor: '#2E46CD', color: 'white', fontWeight: 600, borderRadius: '10px', padding: '5px 15px 5px 15px', marginLeft: '10px','&:hover': {backgroundColor: '#1565C0',}, }}>Login</Button>
+                    </SignedOut>
+                    <SignedIn>
+                        <UserButton />  
+                    </SignedIn>
                 </div>
             </Toolbar>
         </AppBar>

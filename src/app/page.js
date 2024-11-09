@@ -1,14 +1,12 @@
-
 'use client'
 
 import Image from "next/image";
 import { Typography, Button, Container, Box } from "@mui/material";
 import shadows from "@mui/material/styles/shadows";
-
 import Link from "next/link";
 import { useRouter } from 'next/navigation';
-
 import Navbar from "./components/Navbar";
+import { ClerkProvider } from "@clerk/nextjs";
 
 
 export default function Home() {
@@ -20,7 +18,6 @@ export default function Home() {
   };
 
   return (
-
     <Box sx={{background:'radial-gradient(rgb(48, 46, 46),rgb(36, 36, 36) 35%)', width:'100vw', height:'100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
     <div
       style={{ // Daniels Div 

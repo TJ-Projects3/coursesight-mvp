@@ -43,6 +43,11 @@
   -webkit-text-fill-color: transparent;
 }
 
+.customButton {
+  background: linear-gradient(90deg, rgba(215,185,44,1) 0%, rgba(230,201,10,1) 43%, rgba(242,242,117,0.9921218487394958) 100%);
+  border-radius: 12px;
+}
+
 
 .customText{
   background: rgb(215,185,44);
