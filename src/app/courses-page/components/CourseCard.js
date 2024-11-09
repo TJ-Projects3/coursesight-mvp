@@ -1,6 +1,6 @@
 // src/app/CourseCard.js
 import React, { useState } from 'react';
-import { Card, CardContent, Typography, CardActionArea, Box, CardMedia, Dialog, DialogTitle, DialogContent, DialogActions, Button, Grid, List, ListItem, ListItemText } from '@mui/material';
+import { Card, CardContent, Typography, CardActionArea, Box, CardMedia, Dialog, DialogTitle, DialogContent, DialogActions, Button, Grid, List, ListItem, ListItemText, Rating } from '@mui/material';
 
 export default function CourseCard({ course, videoUrl, testimonials, professors }) {
   const [open, setOpen] = useState(false);
@@ -67,11 +67,14 @@ export default function CourseCard({ course, videoUrl, testimonials, professors 
               </Box>
             </Grid>
             <Grid item xs={12} md={4}>
-              <Typography variant="h6">Possible Teachers and Their Ratings</Typography>
+              <Box sx={{ textAlign: 'center' }}>
+              <Typography variant="h6"> Professors</Typography>
+              </Box>
               <List>
                 {professors.map((professor, index) => (
                   <ListItem key={index}>
-                    <ListItemText primary={professor.name} secondary={`Rating: ${professor.rating}`} />
+                    <ListItemText primary={professor.name} />
+                    <Rating value={professor.rating} precision={0.1} readOnly />
                   </ListItem>
                 ))}
               </List>
