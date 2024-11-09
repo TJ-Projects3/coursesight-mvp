@@ -237,9 +237,11 @@ export default function Courses() {
     setSearchQuery(event.target.value);
   };
 
-  const filteredCourses = courses.filter((course) =>
-    course.title.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+ const filteredCourses = courses
+    .filter((course) =>
+      course.title.toLowerCase().includes(searchQuery.toLowerCase())
+    )
+    .sort((a, b) => a.title.localeCompare(b.title)); // Sort courses alphabetically by title
 
   return (
     <>
