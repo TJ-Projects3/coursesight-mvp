@@ -1,5 +1,5 @@
 // src/app/CourseCard.js
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Card, CardContent, Typography, CardActionArea, Box, CardMedia, Dialog, DialogTitle, DialogContent, DialogActions, Button, Grid, List, ListItem, ListItemText, TextField, Rating } from '@mui/material';
 import { SignedIn, SignedOut, useUser } from '@clerk/clerk-react';
 import Link from 'next/link';
@@ -7,7 +7,25 @@ import Link from 'next/link';
 export default function CourseCard({ course, videoUrl, testimonials, professors }) {
   const [open, setOpen] = useState(false);
   const [comment, setComment] = useState('');
+  const [comments, setComments] = useState([]);
   const { user } = useUser();
+
+  useEffect(() => {
+    // Load comments from localStorage when the component mounts
+    const storedComments = JSON.parse(localStorage.getItem(`comments-${course.id}`)) || [];
+    setComments(storedComments);
+
+    // Add event listener to clear local storage on page reload
+    const handleBeforeUnload = () => {
+      localStorage.removeItem(`comments-${course.id}`);
+    };
+    window.addEventListener('beforeunload', handleBeforeUnload);
+
+    // Clean up the event listener on component unmount
+    return () => {
+      window.removeEventListener('beforeunload', handleBeforeUnload);
+    };
+  }, [course.id]);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -22,8 +40,16 @@ export default function CourseCard({ course, videoUrl, testimonials, professors 
   };
 
   const handleCommentSubmit = () => {
-    // Handle comment submission logic here
-    console.log('Comment submitted:', comment);
+    // Get the current month and year
+    const date = new Date();
+    const month = date.toLocaleString('default', { month: 'long' });
+    const year = date.getFullYear();
+    const formattedDate = `${month} ${year}`;
+
+    // Save the comment to localStorage
+    const newComments = [...comments, { user: formattedDate, text: comment }];
+    setComments(newComments);
+    localStorage.setItem(`comments-${course.id}`, JSON.stringify(newComments));
     setComment('');
   };
 
@@ -77,6 +103,11 @@ export default function CourseCard({ course, videoUrl, testimonials, professors 
                       <ListItemText primary={testimonial.student} secondary={testimonial.testimonial} />
                     </ListItem>
                   ))}
+                  {comments.map((comment, index) => (
+                    <ListItem key={index}>
+                      <ListItemText primary={comment.user} secondary={comment.text} />
+                    </ListItem>
+                  ))}
                 </List>
                 <SignedIn>
                   <Box sx={{ mt: 2 }}>
@@ -95,10 +126,10 @@ export default function CourseCard({ course, videoUrl, testimonials, professors 
                   </Box>
                 </SignedIn>
                 <SignedOut>
-                <Link href="/sign-in" passHref>
-                  <Typography variant="body2" color="primary" sx={{ cursor: 'pointer', textDecoration: 'underline' }}>
-                    Please sign in to add a comment.
-                  </Typography>
+                  <Link href="/sign-in" passHref>
+                    <Typography variant="body2" color="primary" sx={{ cursor: 'pointer', textDecoration: 'underline' }}>
+                      Please sign in to add a comment.
+                    </Typography>
                   </Link>
                 </SignedOut>
               </Box>
