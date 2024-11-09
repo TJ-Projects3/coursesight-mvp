@@ -16,6 +16,7 @@ export default function CourseCard({ course }) {
           boxShadow: 6,
         },
         backgroundColor: 'background.paper',
+        height: '100%',
       }}
     >
       <Link href={`/courses/${course.id}`} passHref>
