@@ -1,18 +1,16 @@
-<<<<<<< HEAD
-"use client";
-=======
+
 'use client'
 
->>>>>>> 411f339df85c3acfa6d35e6e0d7fdc01d48700fe
+
 import Image from "next/image";
 import { Typography, Button, Container, Box } from "@mui/material";
 import shadows from "@mui/material/styles/shadows";
-<<<<<<< HEAD
+
 import Link from "next/link";
 import { useRouter } from 'next/navigation';
-=======
+
 import Navbar from "./components/Navbar";
->>>>>>> 411f339df85c3acfa6d35e6e0d7fdc01d48700fe
+
 
 export default function Home() {
 

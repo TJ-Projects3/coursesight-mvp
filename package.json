@@ -13,14 +13,14 @@
     "@emotion/styled": "^11.13.0",
     "@mui/material": "^6.1.6",
     "next": "15.0.3",
-<<<<<<< HEAD
+
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
-=======
+    "react-dom": "^18.3.1",
+
     "nodejs": "^0.0.0",
     "react": "19.0.0-rc-66855b96-20241106",
     "react-dom": "19.0.0-rc-66855b96-20241106"
->>>>>>> 411f339df85c3acfa6d35e6e0d7fdc01d48700fe
+
   },
   "devDependencies": {
     "eslint": "^8",
