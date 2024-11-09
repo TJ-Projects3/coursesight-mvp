@@ -1,9 +1,12 @@
 // src/app/CourseCard.js
 import React, { useState } from 'react';
-import { Card, CardContent, Typography, CardActionArea, Box, CardMedia, Dialog, DialogTitle, DialogContent, DialogActions, Button, Grid, List, ListItem, ListItemText, Rating } from '@mui/material';
+import { Card, CardContent, Typography, CardActionArea, Box, CardMedia, Dialog, DialogTitle, DialogContent, DialogActions, Button, Grid, List, ListItem, ListItemText, TextField, Rating } from '@mui/material';
+import { SignedIn, SignedOut, useUser } from '@clerk/clerk-react';
 
 export default function CourseCard({ course, videoUrl, testimonials, professors }) {
   const [open, setOpen] = useState(false);
+  const [comment, setComment] = useState('');
+  const { user } = useUser();
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -11,6 +14,16 @@ export default function CourseCard({ course, videoUrl, testimonials, professors 
 
   const handleClose = () => {
     setOpen(false);
+  };
+
+  const handleCommentChange = (event) => {
+    setComment(event.target.value);
+  };
+
+  const handleCommentSubmit = () => {
+    // Handle comment submission logic here
+    console.log('Comment submitted:', comment);
+    setComment('');
   };
 
   return (
@@ -64,11 +77,32 @@ export default function CourseCard({ course, videoUrl, testimonials, professors 
                     </ListItem>
                   ))}
                 </List>
+                <SignedIn>
+                  <Box sx={{ mt: 2 }}>
+                    <Typography variant="h6">Add a Comment</Typography>
+                    <TextField
+                      label="Your Comment"
+                      variant="outlined"
+                      fullWidth
+                      margin="normal"
+                      value={comment}
+                      onChange={handleCommentChange}
+                    />
+                    <Button variant="contained" color="primary" onClick={handleCommentSubmit}>
+                      Submit
+                    </Button>
+                  </Box>
+                </SignedIn>
+                <SignedOut>
+                  <Typography variant="body2" color="text.secondary">
+                    Please sign in to add a comment.
+                  </Typography>
+                </SignedOut>
               </Box>
             </Grid>
             <Grid item xs={12} md={4}>
               <Box sx={{ textAlign: 'center' }}>
-              <Typography variant="h6"> Professors</Typography>
+                <Typography variant="h6">Professors</Typography>
               </Box>
               <List>
                 {professors.map((professor, index) => (
