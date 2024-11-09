@@ -12,10 +12,9 @@ export default function Navbar() {
                     </Typography>
                 </div>
                 <div>
-                    <Button color="inherit" href="/pricing" className="nav-item">Pricing</Button>
-                    <Button color="inherit" href="/about" className="nav-item">About</Button>
-                    <Button color="inherit" href="/resources" className="nav-item">Resource</Button>
-                    <Button color="inherit" href="/contact" className="nav-item">Contact</Button>    
+                    <Button color="black" href="/about" className="nav-item">About</Button>
+                    <Button color="black" href="/resources" className="nav-item">Resource</Button>
+                    <Button color="black" href="/contact" className="nav-item">Contact</Button>    
                 </div>
                 <div>
                     <SignedOut>
