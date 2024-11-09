@@ -10,6 +10,8 @@ import { ChevronDown, Star, Book, Users, Trophy } from 'lucide-react'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import { useRouter } from 'next/navigation';
+import { SignedIn, SignedOut } from '@clerk/nextjs'
+import Link from 'next/link'
 
 export default function Home() {
   const router = useRouter();
@@ -29,6 +31,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-background to-secondary/20">
+
       <Navbar></Navbar>
       <header className="relative h-screen flex flex-col items-center justify-center text-center px-4 gutterBottom">
         <motion.div
@@ -64,7 +67,7 @@ export default function Home() {
         </motion.p>
         <div className="flex space-x-4">
           <Button size="lg" className="bg-primary hover:bg-primary/90" onClick={handleRedirect}>Get Started</Button>
-          <Button size="lg" variant="outline">Learn More</Button>
+          <Link href="/chatbot" passHref><Button size="lg" variant="outline">Study Buddy</Button></Link>
         </div>
         <motion.div 
           className="absolute bottom-10 left-1/2 transform -translate-x-1/2"

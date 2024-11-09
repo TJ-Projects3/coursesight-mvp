@@ -23,7 +23,7 @@ export default function Navbar() {
                         <Button color="inherit" href="/sign-in" className="button-blue" sx={{ mr: 2, backgroundColor: '#2E46CD', color: 'white', fontWeight: 600, borderRadius: '10px', padding: '5px 15px 5px 15px', marginLeft: '10px','&:hover': {backgroundColor: '#1565C0',}, }}>Login</Button>
                     </SignedOut>
                     <SignedIn>
-                        <UserButton />  
+                        <UserButton /> 
                     </SignedIn>
                 </div>
             </Toolbar>
