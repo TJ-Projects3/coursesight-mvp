@@ -1,10 +1,11 @@
-require('dotenv').config({ path: '.env.local' }); // Ensure this is at the top
+require('dotenv').config({ path: '../../.env.local' }); // Ensure this is at the top
 const express = require('express');
 const mongoose = require('mongoose');
 const Course = require('./courseSchema');
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT;
+console.log("PORT:", port); // Debugging line
 console.log('MONGODB_URI:', process.env.MONGODB_URI); // Debugging line
 
 mongoose
