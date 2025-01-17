@@ -31,6 +31,26 @@ router.post("/", async (req, res) => {
     }
 });
 
+router.put("/:id", async (req, res) => {
+    const { id } = req.params
+    const course = req.body
+
+    if(!mongoose.Types.ObjectId.isValid(id)) {
+        res.status(404).json({ success: false, message: "Course not found, please enter valid ID"})
+    }
+
+    try {
+        const updatedCourse = await Course.findByIdAndUpdate( id, course, { new: true })
+        if(!updatedCourse) {
+            res.status(404).json({ success: false, message: "Course not found" })
+        }
+        res.status(200).json({ success: true, data: updatedCourse })
+    } catch(error) {
+        console.error("Error updating product:" , error.message)
+        res.status(500).json({ success: false, message: "Server Error" })
+    }
+})
+
 router.delete("/:id", async (req, res) => {
     const { id } = req.params;
 
