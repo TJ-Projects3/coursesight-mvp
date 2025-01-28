@@ -16,4 +16,4 @@ app.use('/api/courses', courseRoutes)
 app.listen(port, () => {
   connectDB()
   console.log("Server is running on localhost:" + port)
-});
+})
