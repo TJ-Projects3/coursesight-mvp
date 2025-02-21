@@ -70,3 +70,52 @@ export const deleteCourse = async (req, res) => {
         res.status(500).json({ success: false, message: "Error deleting course" });
     }
 };
+
+export const addComment = async (req, res) => {
+    const { id } = req.params;
+    const { text, createdAt } = req.body;
+
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        return res.status(404).json({
+            success: false,
+            message: "Course not found, invalid ID format"
+        });
+    }
+
+    if (!text) {
+        return res.status(400).json({
+            success: false,
+            message: "Comment text is required"
+        });
+    }
+
+    try {
+        const course = await Course.findById(id);
+        
+        if (!course) {
+            return res.status(404).json({
+                success: false,
+                message: "Course not found"
+            });
+        }
+
+        const newComment = {
+            text,
+            createdAt: createdAt || new Date(),
+        };
+
+        course.comments.push(newComment);
+        await course.save();
+
+        res.status(201).json({
+            success: true,
+            data: newComment
+        });
+    } catch (error) {
+        console.error("Error adding comment:", error);
+        res.status(500).json({
+            success: false,
+            message: "Error adding comment"
+        });
+    }
+};

@@ -2,11 +2,13 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import CourseCard from './components/CourseCard';
-import { Container, TextField, Box, Grid, Typography, CircularProgress, Alert } from '@mui/material';
+import { Container, TextField, Box, Grid, Typography, CircularProgress, Alert, Button } from '@mui/material';
 import { experimentalStyled as styled } from '@mui/material/styles';
 import Navbar from "../components/Navbar";
 import Footer from '../components/Footer';
 import useCourseStore from '../stores/courseStore';
+import { SignedIn } from '@clerk/nextjs';
+import { SignedOut } from '@clerk/clerk-react';
 
 const Item = styled(Box)(({ theme }) => ({
   backgroundColor: '#fff',
@@ -55,9 +57,19 @@ export default function Courses() {
     <>
       <Navbar />
       <Container sx={{ mt: 12 }}>
-        <Typography variant="h4" component="h1" gutterBottom sx={{ mb: 4 }}>
+        <Box display="flex" justifyContent="space-between" alignItems="center">
+        <Typography variant="h4" component="h1" sx={{ mb: 1 }}>
           Available Courses
         </Typography>
+        <SignedOut>
+          <Button href="/sign-in">Sign in to add a course</Button>
+        </SignedOut>
+        <SignedIn>
+        <Button className='bg-color bg-pink-500' variant="contained" color="primary">
+          Add Course
+        </Button>
+        </SignedIn>
+        </Box>
         <TextField
           label="Search Courses"
           variant="outlined"

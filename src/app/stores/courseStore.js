@@ -131,6 +131,47 @@ const useCourseStore = create((set) => ({
 
   // Clear error
   clearError: () => set({ error: null }),
+
+  // Add a comment to a course
+  addComment: async (courseId, commentData) => {
+    set({ loading: true });
+    try {
+      console.log('Sending comment data:', commentData); // For debugging
+      const data = await useCourseStore.getState().fetchWithConfig(
+        `${process.env.NEXT_PUBLIC_API_URL}/courses/${courseId}/comments`,
+        {
+          method: 'POST',
+          body: JSON.stringify({
+            text: commentData.text,
+            createdAt: commentData.createdAt
+          }),
+        }
+      );
+
+      if (!data.success) {
+        throw new Error(data.message);
+      }
+
+      // Update the local state with the new comment
+      set((state) => ({
+        courses: state.courses.map((course) => 
+          course._id === courseId 
+            ? { 
+                ...course, 
+                comments: [...(course.comments || []), data.data] 
+              }
+            : course
+        ),
+        loading: false,
+        error: null,
+      }));
+      return data.data;
+    } catch (error) {
+      console.error('Error adding comment:', error);
+      set({ error: error.message, loading: false });
+      throw error;
+    }
+  },
 }));
 
 export default useCourseStore; 
