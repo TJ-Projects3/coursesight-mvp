@@ -63,7 +63,7 @@ export default function Home() {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5, duration: 0.8 }}
         >
-          Your one-stop platform for course reviews, study resources, and campus life insights.
+          Your one-stop platform for course reviews, study resources, and campus life insights. You are currently on the <em>demo</em> version.
         </motion.p>
         <div className="flex space-x-4">
           <Button size="lg" className="bg-primary hover:bg-primary/90" onClick={handleRedirect}>Get Started</Button>

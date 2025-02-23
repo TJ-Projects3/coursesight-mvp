@@ -1,21 +1,29 @@
 import { SignedIn, SignedOut, UserButton} from "@clerk/nextjs";
-import { AppBar, Toolbar, Button, Typography, Image } from "@mui/material";
+import { AppBar, Toolbar, Button, Typography } from "@mui/material";
+import Image from 'next/image';
 
 export default function Navbar() {
     return (
-        <AppBar className="nav-bar bg-gradient-to-r from-purple-400 via-pink-500 to-red-500" position="fixed">
-            <Toolbar className="tool-bar">
+        <AppBar className="bg-gradient-to-r from-purple-400 via-pink-500 to-red-500" position="fixed">
+            <Toolbar sx={{justifyContent: "space-between"}}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                    <img src="\tu-tiger.webp" width="50px"></img>
+                    <Image
+                        src="/Coursesight-Logo.png"
+                        alt="Tiger Logo" 
+                        width={65}
+                        height={40}
+                        priority
+                        style={{ marginTop: '2px' }}
+                    />
                     <Typography className="logo-title" component="a" href="/" variant="h6" sx={{  textDecoration: 'none', color: 'black', paddingLeft: '10px'}}>
                         Coursesight
                     </Typography>
                 </div>
                 <div>
-                    <Button color="black" href="/" className="nav-item">Home</Button>
-                    <Button color="black" href="#about" className="nav-item">About</Button>
-                    <Button color="black" href="#resources" className="nav-item">Resource</Button>
-                    <Button color="black" href="#contact" className="nav-item">Contact</Button>    
+                    <Button color="inherit" href="/" className="nav-item">Home</Button>
+                    <Button color="inherit" href="/#about" className="nav-item">About</Button>
+                    <Button color="inherit" href="/#resources" className="nav-item">Resource</Button>
+                    <Button color="inherit" href="/#contact" className="nav-item">Contact</Button>    
                 </div>
                 <div>
                     <SignedOut>

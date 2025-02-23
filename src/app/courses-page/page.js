@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import CourseCard from './components/CourseCard';
 import { Container, TextField, Box, Grid, Typography, CircularProgress, Alert, Button } from '@mui/material';
 import { experimentalStyled as styled } from '@mui/material/styles';
-import Navbar from "../components/Navbar";
+import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import useCourseStore from '../stores/courseStore';
 import { SignedIn } from '@clerk/nextjs';
@@ -62,10 +62,17 @@ export default function Courses() {
           Available Courses
         </Typography>
         <SignedOut>
-          <Button href="/sign-in">Sign in to add a course</Button>
+          <Button href="/sign-in">
+            Sign in to add a course
+          </Button>
         </SignedOut>
         <SignedIn>
-        <Button className='bg-color bg-pink-500' variant="contained" color="primary">
+        <Button 
+          className='bg-color bg-pink-500' 
+          variant="contained" 
+          color="primary" 
+          href="/create-course"
+        >
           Add Course
         </Button>
         </SignedIn>
@@ -80,9 +87,9 @@ export default function Courses() {
           sx={{ mb: 4 }}
         />
         <Box sx={{ flexGrow: 1 }}>
-          <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+          <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }} mb={12}>
             {filteredCourses.map((course) => (
-              <Grid item key={course._id} xs={2} sm={4} md={4}>
+              <Grid item key={course._id} xs={2} sm={4}>
                 <Item>
                   <CourseCard course={course} />
                 </Item>
