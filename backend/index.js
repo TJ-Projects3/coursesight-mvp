@@ -12,21 +12,13 @@ const port = process.env.PORT || 5000;
 // CORS configuration
 const corsOptions = {
   origin: [
-    'http://localhost:3000',           // Development
-    'http://localhost:5000',           // Local API
-    process.env.FRONTEND_URL,          // Production frontend (if different)
-  ].filter(Boolean), // Remove any undefined origins
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: [
-    'Content-Type',
-    'Authorization',
-    'X-Requested-With',
-    'Accept',
-    'Origin'
-  ],
+    'http://localhost:3000',
+    'https://course-sight-onyv1w30z-tiwalayo-oluwalades-projects.vercel.app', // Add your Vercel domain
+    process.env.FRONTEND_URL
+  ].filter(Boolean),
   credentials: true,
-  maxAge: 86400, // 24 hours
-  preflightContinue: false,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
   optionsSuccessStatus: 204
 };
 
