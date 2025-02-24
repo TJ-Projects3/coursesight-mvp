@@ -173,13 +173,13 @@ export default function Home() {
             <div className="grid md:grid-cols-2 gap-8">
               <Card>
                 <CardContent className="pt-6">
-                  <p className="italic mb-4">"Coursesight has been a game-changer for my college experience. The course reviews helped me choose classes that align with my learning style and interests."</p>
+                  <p className="italic mb-4">&quot;Coursesight has been a game-changer for my college experience. The course reviews helped me choose classes that align with my learning style and interests.&quot;</p>
                   <p className="font-semibold">- Sarah J., Junior</p>
                 </CardContent>
               </Card>
               <Card>
                 <CardContent className="pt-6">
-                  <p className="italic mb-4">"The study resources on Coursesight are incredible. I've improved my grades significantly thanks to the practice tests and study guides available here."</p>
+                  <p className="italic mb-4">&quot;The study resources on Coursesight are incredible. I&apos;ve improved my grades significantly thanks to the practice tests and study guides available here.&quot;</p>
                   <p className="font-semibold">- Mike T., Sophomore</p>
                 </CardContent>
               </Card>
