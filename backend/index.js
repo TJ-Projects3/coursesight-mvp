@@ -9,12 +9,19 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT || 5000;
 
-// middleware for handling cors policy
+// CORS configuration
 const corsOptions = {
-  origin: `${process.env.FRONTEND_URL}`,   // only allow for our frontend
+  origin: [
+    'http://localhost:3000',
+    process.env.FRONTEND_URL,
+  ].filter(Boolean),
   credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  optionsSuccessStatus: 204
 };
 
+// Apply CORS middleware
 app.use(cors(corsOptions));
 
 // Body parser middleware
