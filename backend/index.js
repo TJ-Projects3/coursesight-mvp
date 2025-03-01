@@ -13,14 +13,17 @@ const __dirname = path.resolve()
 
 // CORS configuration
 const corsOptions = {
-  origin: '*',
-  credentials: true,
+  origin: [
+    'http://localhost:3000',
+    'https://course-sight-git-test-tiwalayo-oluwalades-projects.vercel.app',
+    'https://course-sight-oarw69pyo-tiwalayo-oluwalades-projects.vercel.app',
+  ].filter(Boolean),
+  credentials: false, // Change to false since we're not using cookies
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
-  optionsSuccessStatus: 204
 };
 
-// Apply CORS middleware
+// Apply CORS middleware before routes
 app.use(cors(corsOptions));
 
 // Body parser middleware
@@ -28,13 +31,6 @@ app.use(express.json());
 
 // Routes
 app.use('/api/courses', courseRoutes);
-
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, ".next")));
-  app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, ".next", "server", "pages", "index.html"));
-  });
-}
 
 // Start server only after DB connection
 connectDB()
