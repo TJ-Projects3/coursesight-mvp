@@ -9,20 +9,12 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT || 5000;
 
-// CORS configuration
+// middleware for handling cors policy
 const corsOptions = {
-  origin: [
-    'http://localhost:3000',
-    'https://course-sight-krhu0alx4-tiwalayo-oluwalades-projects.vercel.app', // Your Vercel domain
-    process.env.FRONTEND_URL
-  ].filter(Boolean),
+  origin: `${process.env.FRONTEND_URL}`,   // only allow for our frontend
   credentials: true,
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
-  optionsSuccessStatus: 204
 };
 
-// Apply CORS middleware
 app.use(cors(corsOptions));
 
 // Body parser middleware
