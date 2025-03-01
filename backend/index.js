@@ -3,18 +3,17 @@ import dotenv from 'dotenv';
 import { connectDB } from './config/db.js';
 import courseRoutes from './routes/courseRoutes.js';
 import cors from 'cors';
+import path from 'path';
 
 dotenv.config();
 
 const app = express();
 const port = process.env.PORT || 5000;
+const __dirname = path.resolve()
 
 // CORS configuration
 const corsOptions = {
-  origin: [
-    'http://localhost:3000',
-    process.env.FRONTEND_URL,
-  ].filter(Boolean),
+  origin: '*',
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
@@ -26,33 +25,16 @@ app.use(cors(corsOptions));
 
 // Body parser middleware
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-
-// Security headers middleware
-app.use((req, res, next) => {
-  res.setHeader('X-Content-Type-Options', 'nosniff');
-  res.setHeader('X-Frame-Options', 'DENY');
-  res.setHeader('X-XSS-Protection', '1; mode=block');
-  next();
-});
 
 // Routes
 app.use('/api/courses', courseRoutes);
 
-// Error handling middleware
-app.use((err, req, res, next) => {
-  console.error(err.stack);
-  res.status(500).json({
-    success: false,
-    message: 'Something went wrong!',
-    error: process.env.NODE_ENV === 'development' ? err.message : undefined
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, ".next")));
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, ".next", "server", "pages", "index.html"));
   });
-});
-
-// Health check route
-app.get('/health', (req, res) => {
-  res.status(200).json({ status: 'ok' });
-});
+}
 
 // Start server only after DB connection
 connectDB()
