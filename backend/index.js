@@ -18,7 +18,7 @@ const corsOptions = {
     'https://course-sight-git-test-tiwalayo-oluwalades-projects.vercel.app',
     'https://course-sight-oarw69pyo-tiwalayo-oluwalades-projects.vercel.app',
   ].filter(Boolean),
-  credentials: false, // Change to false since we're not using cookies
+  credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
 };
