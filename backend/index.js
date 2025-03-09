@@ -16,7 +16,7 @@ const corsOptions = {
   origin: [
     'http://localhost:3000',
     'https://course-sight-git-test-tiwalayo-oluwalades-projects.vercel.app',
-    'https://course-sight-oarw69pyo-tiwalayo-oluwalades-projects.vercel.app',
+    'https://course-sight-tiwalayo-oluwalades-projects.vercel.app'
   ].filter(Boolean),
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
